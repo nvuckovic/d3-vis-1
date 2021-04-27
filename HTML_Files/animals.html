@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    
+    <head>
+        <!-- required meta tags -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        <!-- bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <title>Florida Man!</title>
+        
+        <style>
+            /* nav bar styles */ 
+            .navbar {
+              overflow: hidden;
+              background-color: #b1eb34;
+              font-family: Courier;
+            }
+            
+            .navbar a {
+              float: left;
+              font-size: 16px;
+              color: #3a6e09;
+              text-align: center;
+              padding: 14px 16px;
+              text-decoration: none;
+            }
+            
+            .dropdown {
+              float: left;
+              overflow: hidden;
+            }
+            
+            .dropdown .dropbtn {
+              font-size: 16px;  
+              border: none;
+              outline: none;
+              color: #3a6e09;
+              padding: 14px 16px;
+              background-color: inherit;
+              font-family: inherit;
+              margin: 0;
+            }
+            
+            .navbar a:hover, .dropdown:hover .dropbtn {
+              background-color: #d2f0b6;
+            }
+            
+            .dropdown-content {
+              display: none;
+              position: absolute;
+              background-color: #d2f0b6;
+              min-width: 160px;
+              box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+              z-index: 1;
+            }
+            
+            .dropdown-content a {
+              float: none;
+              color: black;
+              padding: 12px 16px;
+              text-decoration: none;
+              display: block;
+              text-align: left;
+            }
+            
+            .dropdown-content a:hover {
+              background-color: #ddd;
+            }
+            
+            .dropdown:hover .dropdown-content {
+              display: block;
+            }
+            
+            p {
+                text-align: center;
+                font-family: Courier;
+            }
+            
+        </style>
+        
+    </head>
+    
+    <body>
+        
+        <!-- nav bar container -->
+        <div class="navbar">
+            <a href="bubble.html">ALL VERBS</a>
+            <a href="restaurants.html">FAST FOOD</a>
+            <a href="animals.html">ANIMALS</a>
+            
+            <div class="dropdown">
+                <button class="dropbtn">GENDER 
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                <a href="man.html">FLORIDA MAN</a>
+                <a href="woman.html">FLORIDA WOMAN</a>
+                <a href="manAndWoman.html">FLORIDA MAN AND WOMAN</a>
+                </div>
+            </div>
+            
+            <div class="dropdown">
+                <button class="dropbtn">YEARS 
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                 <a href="timeline.html">TIMELINE</a>  
+                <a href="2014.html">2014</a>
+                <a href="2015.html">2015</a>
+                <a href="2016.html">2016</a>
+                <a href="2017.html">2017</a>
+                <a href="2018.html">2018</a>
+                <a href="2019.html">2019</a>
+                <a href="2020.html">2020</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Load d3.js -->
+        <!-- Its important for this to be v4 of d3 -->
+        <script src="https://d3js.org/d3.v4.js"></script>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>This is a bar chart that shows which animals appear in the most "Florida Man" headlines.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Create a div where the graph will take place -->
+        <div id="animals-bar-chart"></div>
+        
+        <script>
+        
+            // referenced code from tutorial
+            // Link: https://www.d3-graph-gallery.com/graph/barplot_animation_start.html
+        
+            // set the dimensions and margins of the graph
+            var margin = {top: window.innerHeight/10, right: window.innerWidth/3, bottom: window.innerHeight/6, left: window.innerWidth/3},
+                width = window.innerWidth - margin.left - margin.right,
+                height = window.innerHeight - margin.top - margin.bottom;
+            
+            // append the svg object to the body of the page
+            var svg = d3.select("#animals-bar-chart")
+              .append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+              .append("g")
+                .attr("transform",
+                      "translate(" + margin.left + "," + margin.top + ")");
+            
+            // Parse the Data
+            d3.json("/JSON_Files/animals.json", function(data) {
+            
+            // X axis
+            var x = d3.scaleBand()
+              .range([ 0, width ])
+              .domain(data.map(function(d) { return d.animal; }))
+              .padding(0.2);
+            svg.append("g")
+              .attr("transform", "translate(0," + height + ")")
+              .call(d3.axisBottom(x))
+              .selectAll("text")
+                .attr("transform", "translate(-10,0)rotate(-45)")
+                .style("text-anchor", "end");
+            
+            // Add Y axis
+            var y = d3.scaleLinear()
+              .domain([0, 70])
+              .range([ height, 0]);
+            svg.append("g")
+              .call(d3.axisLeft(y));
+            
+            // Bars
+            svg.selectAll("mybar")
+              .data(data)
+              .enter()
+              .append("rect")
+                .attr("x", function(d) { return x(d.animal); })
+                .attr("width", x.bandwidth())
+                .attr("fill", "#69b3a2")
+                // no bar at the beginning thus:
+                .attr("height", function(d) { return height - y(0); }) // always equal to 0
+                .attr("y", function(d) { return y(0); })
+            
+            // Animation
+            svg.selectAll("rect")
+              .transition()
+              .duration(800)
+              .attr("y", function(d) { return y(d.score); })
+              .attr("height", function(d) { return height - y(d.score); })
+              .delay(function(d,i){console.log(i) ; return(i*100)})
+            
+            })
+            
+        </script>
+        
+    </body>
+    
+    
+</html>

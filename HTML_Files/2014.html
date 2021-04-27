@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+        <!-- required meta tags -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        <!-- bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <title>Florida Man!</title>
+        
+        <!--style sheet for visualizations-->
+        <link rel="stylesheet" href="styles.css"/>
+
+    </head>
+
+    <body>
+
+        <!-- nav bar container -->
+        <div class="navbar">
+            <a href="bubble.html">ALL VERBS</a>
+            <a href="restaurants.html">FAST FOOD</a>
+            <a href="animals.html">ANIMALS</a>
+            
+            <div class="dropdown">
+                <button class="dropbtn">GENDER 
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                <a href="man.html">FLORIDA MAN</a>
+                <a href="woman.html">FLORIDA WOMAN</a>
+                <a href="manAndWoman.html">FLORIDA MAN AND WOMAN</a>
+                </div>
+            </div>
+            
+            <div class="dropdown">
+                <button class="dropbtn">YEARS 
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                <a href="timeline.html">TIMELINE</a>  
+                <a href="2014.html">2014</a>
+                <a href="2015.html">2015</a>
+                <a href="2016.html">2016</a>
+                <a href="2017.html">2017</a>
+                <a href="2018.html">2018</a>
+                <a href="2019.html">2019</a>
+                <a href="2020.html">2020</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Hover over a verb to view a random headline. Click to go to the article associated with the headline.</p>
+                </div>
+            </div>
+        </div>
+        
+        <svg id="bubble-chart"></svg>
+        <div class="tooltip">
+            <img alt="" />
+            <div>
+                <a></a>
+                <span></span>
+            </div>
+        </div>
+
+        <!-- script for bubble chart -->
+        <script src="https://d3js.org/d3.v6.js"></script>
+        <script id="script" src="/D3_Scripts/year2014.js"></script>
+
+        <!-- JS, Popper.js, and jQuery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    </body>
+</html>

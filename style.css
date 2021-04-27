@@ -1,0 +1,179 @@
+html, body {
+    margin:0;
+    padding:0;
+}
+
+h2 {
+    font-family: 'Playball', cursive;
+    font-size: 50px;
+}
+
+/* post card header image */
+.header {
+    background-image: url("beach-background.jpeg");
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    max-width: 100%;
+    padding-top: 50px;
+}
+
+/* shifting gradient background - NOT IN USE RIGHT NOW */
+.css-selector {
+    background: linear-gradient(270deg, #e1a64b, #ffa39f, #56ccff, #9ed694);
+    padding-top: 80px;
+    padding-bottom: 80px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-size: 800% 800%;
+
+    -webkit-animation: shifting-gradient 20s ease infinite;
+    -moz-animation: shifting-gradient 20s ease infinite;
+    -o-animation: shifting-gradient 20s ease infinite;
+    animation: shifting-gradient 20s ease infinite;
+}
+@-webkit-keyframes shifting-gradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes shifting-gradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-o-keyframes shifting-gradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes shifting-gradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.button1 {
+    background-color: #ff477b;
+    border: none;
+    color: white;
+    padding: 5px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button1:hover {
+    background-color: #ff87a9;
+    color: white;
+    text-decoration: none;
+    font-style: italic;
+}
+
+.description {
+    background-color:#a5cce6;
+    text-align: center;
+    font-family: Courier;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    padding-left: 30px;
+    padding-right: 80px;
+    width: 50%;
+}
+
+.florida-shape {
+    background-color:#a5cce6; /*a5cce6*/
+    text-align: center;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    padding-left: 80px;
+    padding-right: 80px;
+    width: 50%;
+}
+
+#florida-img {
+    width: 100%;
+    height: 100%;
+}
+
+/* bottom of the homepage */
+.footer {
+    background-color: rgb(233, 148, 64);
+    color: rgb(255, 215, 177);
+    text-align: center;
+    font-family: Courier;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+.credits {
+    background-color:#ffd5ad;
+    text-align: center;
+    font-family: Courier;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+/* fade-in animation */
+.fade-in {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 70%;
+
+    animation: fadeIn ease 4s;
+    -webkit-animation: fadeIn ease 4s;
+    -moz-animation: fadeIn ease 4s;
+    -o-animation: fadeIn ease 4s;
+    -ms-animation: fadeIn ease 4s;
+    }
+    @keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+
+/* nav bar styles */ 
+#nav-bar.navbar-default {
+    font-size: 20px;
+    font-family: 'Courier';
+    background-color: rgb(233, 148, 64);
+    border-bottom-width: 1px;
+}
+#nav-bar.navbar-default .navbar-nav>li>a {
+    color: rgb(255, 215, 177);
+    background-color: rgb(233, 148, 64);
+    padding-right: 30px;
+    padding-left: 30px;
+}
+#nav-bar.navbar-default .navbar-nav>li>a:hover,
+#nav-bar.navbar-default .navbar-nav>li>a:focus {
+    color: rgba(255, 10, 194, 1);
+    background-color: rgba(255, 186, 186, 1);
+    font-style: italic;
+    text-decoration: none;
+}

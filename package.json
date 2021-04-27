@@ -1,0 +1,21 @@
+{
+  "name": "florida-man",
+  "version": "1.0.0",
+  "description": "Team Eric, Jaysa, Nikola, and Kyle",
+  "main": "bubble.js",
+  "scripts": {
+    "start": "http-server -o"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ejgrimm/florida-man.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ejgrimm/florida-man/issues"
+  },
+  "homepage": "https://github.com/ejgrimm/florida-man#readme"
+}
+
